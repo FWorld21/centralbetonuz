@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+		<link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+		<link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+		<title>Central Beton - Наши объекты</title>
+		<script src="{% static '/js/swiper-bundle.min' %}.js" defer></script>
+		<script src="{% static '/js/swiper-objects.js' %}" defer></script>
+		<script src="{% static '/js/mobile-menu.js' %}" defer></script>
+{% endblock %}
+{% block content %}
+<main>
+	<section class="container space-y-8 py-10 sm:space-y-16 md:py-20">
+		<h2 class="relative text-center text-2xl font-semibold sm:text-4xl">Наши объекты</h2>
+		<div class="grid grid-cols-1 gap-y-7 font-[Gilroy] text-black md:grid-cols-2 md:gap-5 lg:gap-8">
+			<!-- ============================== -->
+			<div class="flex h-[510px] flex-col overflow-hidden rounded-xl bg-white shadow-sm sm:w-full md:rounded-none xl:w-[605px]">
+				<div class="h-[300px]">
+					<div class="objects h-full overflow-hidden">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/1.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/1.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/2.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/2.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/3.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/3.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/4.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/4.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-auto space-y-2 p-5">
+					<h3 class="text-lg font-bold">Краткое описание</h3>
+					<p class="opacity-50">
+						Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Власти жизни, города инициал вдали, одна свой
+						океана рыбного, ему то пояс взгляд продолжил которое по всей прямо вершину использовало диких!
+					</p>
+					<div class="text-base md:text-lg">
+						<span class="font-semibold">Адрес:</span>
+						<span>Далеко-далеко за словесными горами в стране.</span>
+					</div>
+				</div>
+			</div>
+			<!-- ============================== -->
+			<!-- ============================== -->
+			<div class="flex h-[510px] flex-col overflow-hidden rounded-xl bg-white shadow-sm sm:w-full md:rounded-none xl:w-[605px]">
+				<div class="h-[300px]">
+					<div class="objects h-full overflow-hidden">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/2.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/2.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/1.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/1.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/3.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/3.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/4.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/4.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-auto space-y-2 p-5">
+					<h3 class="text-lg font-bold">Краткое описание</h3>
+					<p class="opacity-50">
+						Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Власти жизни, города инициал вдали, одна свой
+						океана рыбного, ему то пояс взгляд продолжил которое по всей прямо вершину использовало диких!
+					</p>
+					<div class="text-base md:text-lg">
+						<span class="font-semibold">Адрес:</span>
+						<span>Далеко-далеко за словесными горами в стране.</span>
+					</div>
+				</div>
+			</div>
+			<!-- ============================== -->
+			<!-- ============================== -->
+			<div class="flex h-[510px] flex-col overflow-hidden rounded-xl bg-white shadow-sm sm:w-full md:rounded-none xl:w-[605px]">
+				<div class="h-[300px]">
+					<div class="objects h-full overflow-hidden">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/3.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/3.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/1.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/1.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/2.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/2.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/4.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/4.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-auto space-y-2 p-5">
+					<h3 class="text-lg font-bold">Краткое описание</h3>
+					<p class="opacity-50">
+						Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Власти жизни, города инициал вдали, одна свой
+						океана рыбного, ему то пояс взгляд продолжил которое по всей прямо вершину использовало диких!
+					</p>
+					<div class="text-base md:text-lg">
+						<span class="font-semibold">Адрес:</span>
+						<span>Далеко-далеко за словесными горами в стране.</span>
+					</div>
+				</div>
+			</div>
+			<!-- ============================== -->
+			<!-- ============================== -->
+			<div class="flex h-[510px] flex-col overflow-hidden rounded-xl bg-white shadow-sm sm:w-full md:rounded-none xl:w-[605px]">
+				<div class="h-[300px]">
+					<div class="objects h-full overflow-hidden">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/4.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/4.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/1.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/1.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/2.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/2.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+							<div class="swiper-slide">
+								<picture>
+									<source srcset="{% static '/img/objects/3.webp' %}" type="image/webp" />
+									<img src="{% static '/img/objects/3.jpg' %}" alt="Наши объекты" class="h-full w-full object-cover" />
+								</picture>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-auto space-y-2 p-5">
+					<h3 class="text-lg font-bold">Краткое описание</h3>
+					<p class="opacity-50">
+						Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Власти жизни, города инициал вдали, одна свой
+						океана рыбного, ему то пояс взгляд продолжил которое по всей прямо вершину использовало диких!
+					</p>
+					<div class="text-base md:text-lg">
+						<span class="font-semibold">Адрес:</span>
+						<span>Далеко-далеко за словесными горами в стране.</span>
+					</div>
+				</div>
+			</div>
+			<!-- ============================== -->
+		</div>
+	</section>
+</main>
+{% endblock %}

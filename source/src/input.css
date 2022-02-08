@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	@font-face {
+		font-family: 'Inter';
+		src: url('../fonts/Inter/Inter-Regular.ttf');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Inter';
+		src: url('../fonts/Inter/Inter-SemiBold.ttf');
+		font-weight: 600;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Inter';
+		src: url('../fonts/Inter/Inter-Bold.ttf');
+		font-weight: 700;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Inter';
+		src: url('../fonts/Inter/Inter-Black.ttf');
+		font-weight: 900;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Gilroy';
+		src: url('../fonts/Gilroy/Gilroy-Regular.ttf');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Gilroy';
+		src: url('../fonts/Gilroy/Gilroy-Medium.ttf');
+		font-weight: 500;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Gilroy';
+		src: url('../fonts/Gilroy/Gilroy-SemiBold.ttf');
+		font-weight: 600;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Gilroy';
+		src: url('../fonts/Gilroy/Gilroy-Bold.ttf');
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	.news-pagination-bullet .swiper-pagination-bullet {
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+		background-color: #07367c;
+	}
+
+	.intro-pagination-bullet .swiper-pagination-bullet {
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+		background-color: #07367c;
+	}
+
+	.objects-pagination-bullet .swiper-pagination {
+		display: none;
+	}
+
+	.objects-pagination-bullet .swiper-pagination-bullet {
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+		background-color: #fff;
+	}
+
+	.swiper-button-prev::after,
+	.swiper-button-next::after {
+		display: none;
+	}
+
+	.beton-card img {
+		transition: all 0.3s ease-out;
+	}
+
+	.beton-card:hover img {
+		opacity: 0.4;
+		cursor: pointer;
+	}
+
+	.active-link {
+		@apply bg-[#144690];
+	}
+}

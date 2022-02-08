@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+		<link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+		<title>Central Beton - Контакты</title>
+		<script src="{% static '/js/mobile-menu.js' %}" defer></script>
+{% endblock %}
+{% block content %}
+		<main>
+			<section class="container space-y-8 py-10 sm:space-y-16 md:pb-[400px] md:pt-20 lg:pb-96">
+				<h2 class="relative text-center text-2xl font-semibold sm:text-4xl">Контакты</h2>
+				<div class="relative flex flex-col justify-between gap-x-20 space-y-7 md:flex-row md:space-y-0">
+					<div class="space-y-7 text-lg font-semibold md:text-2xl">
+						{% for address in addresses %}
+							<p>{{ address }}</p>
+						{% endfor %}
+						<div class="flex flex-col lg:flex-row lg:space-x-5">
+							{% for phone in phones %}
+								<a href="tel:{{phone}}">{{ phone }}</a>
+							{% endfor %}
+						</div>
+						<div>
+							{% for email in emails %}
+							<a href="mailto:{{ email }}">
+								{{ email }}
+							</a>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="mx-auto w-full max-w-[366px] space-y-7 md:mx-0 lg:flex-1">
+						<h3 class="text-2xl font-bold">Стать партнером</h3>
+						<form class="space-y-4">
+							<input
+								type="text"
+								placeholder="Ваше имя"
+								name="name"
+								class="ring-accent placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
+							/>
+							<input
+								type="tel"
+								placeholder="Ваш телефон"
+								name="phone"
+								class="placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
+							/>
+							<input
+								type="text"
+								placeholder="Сайт компании (необязательно)"
+								name="site"
+								class="placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
+							/>
+							<button type="submit" class="border-accent mx-auto block rounded-full border-2 px-10 py-3 text-lg font-bold">Отправить</button>
+						</form>
+					</div>
+
+					<div class="absolute top-72 hidden md:block lg:top-52">
+						<img src="{% static '/img/map.svg' %}" alt="Карта" />
+					</div>
+				</div>
+			</section>
+		</main>
+{% endblock %}

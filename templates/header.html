@@ -1,0 +1,66 @@
+{% load static %}
+<div class="burger-menu bg-accent fixed inset-0 z-50 flex hidden h-screen flex-col items-center justify-center overflow-y-auto p-8">
+  <nav class="text-white">
+    <ul class="space-y-7 text-center text-3xl font-bold">
+      <li>
+        <a href="{% url 'home' %}"> Главная </a>
+      </li>
+      <li>
+        <a href="{% url 'products' %}"> Продукция </a>
+      </li>
+      <li>
+        <a href="{% url 'objects' %}"> Наши объекты </a>
+      </li>
+      <li>
+        <a href="{% url 'contacts' %}"> Контакты </a>
+      </li>
+      <li>
+        <a href="{% url 'about' %}"> О нас </a>
+      </li>
+      <li>
+        <a href="tel:+998946842318"> +998 94 684 23 18 </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="burger-close absolute right-6 top-6">
+    <img src="{% static '/img/icons/close.svg' %}" alt="Закрыть" />
+  </div>
+</div>
+<header class="h-24 bg-accent text-white" id="top">
+  <div class="container flex h-full items-center justify-between">
+    <a href="{% url 'home' %}">
+      <img src="{% static '/img/logo.svg' %}" alt="Логотип" />
+    </a>
+
+    <nav class="hidden h-full md:block">
+      <ul class="flex h-full items-center">
+        <li class="active-link h-full transition hover:bg-[#144690]">
+          <a href="{% url 'home' %}" class="flex h-full items-center px-3 lg:px-5"> Главная </a>
+        </li>
+        <li class="h-full transition hover:bg-[#144690]">
+          <a href="{% url 'products' %}" class="flex h-full items-center px-3 lg:px-5"> Продукция </a>
+        </li>
+        <li class="h-full transition hover:bg-[#144690]">
+          <a href="{% url 'objects' %}" class="flex h-full items-center px-3 lg:px-5"> Наши объекты </a>
+        </li>
+        <li class="h-full transition hover:bg-[#144690]">
+          <a href="{% url 'contacts' %}" class="flex h-full items-center px-3 lg:px-5"> Контакты </a>
+        </li>
+        <li class="h-full transition hover:bg-[#144690]">
+          <a href="{% url 'about' %}" class="flex h-full items-center px-3 lg:px-5"> О нас </a>
+        </li>
+      </ul>
+    </nav>
+
+    <a href="tel:+998946842318"
+      class="hidden h-full px-3 transition hover:bg-[#144690] md:flex md:items-center lg:px-5">
+      <img src="{% static '/img/icons/phone.svg' %}" alt="Телефонный номер" class="lg:hidden" />
+      <span class="h-full items-center md:hidden lg:flex"> +998 94 684 23 18 </span>
+    </a>
+
+    <div class="burger-btn md:hidden">
+      <img src="{% static '/img/burger-btn.svg' %}" alt="Меню" />
+    </div>
+  </div>
+</header>

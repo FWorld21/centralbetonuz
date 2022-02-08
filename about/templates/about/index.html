@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+	<link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+	<title>Central Beton - О нас</title>
+	<script src="{% static '/js/mobile-menu.js' %}" defer></script>
+{% endblock %}
+{% block content %}
+<main>
+	<section class="container space-y-8 py-10 sm:space-y-16 md:py-20">
+		<h2 class="relative text-center text-2xl font-semibold sm:text-4xl">О нас</h2>
+		<div class="flex flex-col gap-x-20 space-y-7 lg:flex-row lg:space-y-0">
+			<div class="text-2xl">
+				<p>
+					Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Имени лучше даль большой языком заглавных
+					послушавшись моей парадигматическая рыбного строчка взгляд маленький, языкового всеми. Свое реторический рот взобравшись текстами?
+				</p>
+			</div>
+
+			<div class="space-y-7">
+				<h3 class="text-2xl font-bold">Стать партнером</h3>
+				<form class="w-full space-y-4 lg:min-w-[366px]">
+					<input
+							type="text"
+							placeholder="Ваше имя"
+							name="name"
+							class="ring-accent placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
+					/>
+					<input
+							type="tel"
+							placeholder="Ваш телефон"
+							name="phone"
+							class="placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
+					/>
+					<input
+							type="text"
+							placeholder="Сайт компании (необязательно)"
+							name="site"
+							class="placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
+					/>
+					<button type="submit" class="border-accent mx-auto block rounded-full border-2 px-10 py-3 text-lg font-bold">Отправить</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<section class="container space-y-8 py-10 sm:space-y-16 md:py-20">
+		<h2 class="relative text-center text-2xl font-semibold sm:text-4xl">Наши сертификаты</h2>
+		<div class="grid place-items-center gap-y-5 sm:grid-cols-2 sm:gap-y-4 md:gap-y-16 lg:grid-cols-3 lg:gap-y-10 xl:grid-cols-4 xl:gap-y-7">
+			<div class="h-[376px] w-[285px] bg-slate-300"></div>
+			<div class="h-[376px] w-[285px] bg-slate-300"></div>
+			<div class="h-[376px] w-[285px] bg-slate-300"></div>
+			<div class="h-[376px] w-[285px] bg-slate-300"></div>
+		</div>
+	</section>
+</main>
+{% endblock %}
