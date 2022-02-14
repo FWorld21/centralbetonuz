@@ -9,9 +9,8 @@ def contacts(request):
         'meta': MetaTags.objects.all(),
         'favicons': settings.Favicon.objects.all(),
         'head_tags': settings.HeadTags.objects.all(),
-        'page': 'home',
+        'page': 'contacts',
         'phones': PhoneNumbers.objects.all(),
-        'emails': Emails.objects.all(),
         'addresses': Addresses.objects.all(),
     }
     return render(request, 'contacts/index.html', context=data)

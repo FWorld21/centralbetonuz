@@ -9,9 +9,10 @@ def products(request):
         'meta': MetaTags.objects.all(),
         'favicons': settings.Favicon.objects.all(),
         'head_tags': settings.HeadTags.objects.all(),
-        'page': 'about',
+        'page': 'products',
+        'products': Products.objects.all(),
         'phones': contacts.PhoneNumbers.objects.all(),
-        'emails': contacts.Emails.objects.all(),
         'addresses': contacts.Addresses.objects.all(),
     }
+    print(data['products'])
     return render(request, 'products/index.html', context=data)

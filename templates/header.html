@@ -1,7 +1,9 @@
 {% load static %}
-<div class="burger-menu bg-accent fixed inset-0 z-50 flex hidden h-screen flex-col items-center justify-center overflow-y-auto p-8">
-  <nav class="text-white">
-    <ul class="space-y-7 text-center text-3xl font-bold">
+<div
+			class="burger-menu bg-accent fixed inset-0 z-50 flex hidden h-screen flex-col items-center justify-center overflow-y-auto p-8"
+		>
+		<nav class="text-white">
+			<ul class="space-y-7 text-center text-3xl font-bold">
       <li>
         <a href="{% url 'home' %}"> Главная </a>
       </li>
@@ -18,7 +20,9 @@
         <a href="{% url 'about' %}"> О нас </a>
       </li>
       <li>
-        <a href="tel:+998946842318"> +998 94 684 23 18 </a>
+        {% for phone in phones %}
+          <a href="tel:{{ phone.number }}">{{ phone.number }}</a>
+        {% endfor %}
       </li>
     </ul>
   </nav>
@@ -27,29 +31,115 @@
     <img src="{% static '/img/icons/close.svg' %}" alt="Закрыть" />
   </div>
 </div>
-<header class="h-24 bg-accent text-white" id="top">
-  <div class="container flex h-full items-center justify-between">
+{% if page == 'home' %}
+  <header class="bg-accent fixed top-0 left-0 right-0 z-40 h-24 text-white" id="top">
+{% else %}
+  <header class="bg-accent top-0 left-0 right-0 z-40 h-24 text-white" id="top">
+{% endif %}
+	<div class="container flex h-full items-center justify-between">
     <a href="{% url 'home' %}">
       <img src="{% static '/img/logo.svg' %}" alt="Логотип" />
     </a>
 
     <nav class="hidden h-full md:block">
-      <ul class="flex h-full items-center">
-        <li class="active-link h-full transition hover:bg-[#144690]">
-          <a href="{% url 'home' %}" class="flex h-full items-center px-3 lg:px-5"> Главная </a>
-        </li>
-        <li class="h-full transition hover:bg-[#144690]">
-          <a href="{% url 'products' %}" class="flex h-full items-center px-3 lg:px-5"> Продукция </a>
-        </li>
-        <li class="h-full transition hover:bg-[#144690]">
-          <a href="{% url 'objects' %}" class="flex h-full items-center px-3 lg:px-5"> Наши объекты </a>
-        </li>
-        <li class="h-full transition hover:bg-[#144690]">
-          <a href="{% url 'contacts' %}" class="flex h-full items-center px-3 lg:px-5"> Контакты </a>
-        </li>
-        <li class="h-full transition hover:bg-[#144690]">
-          <a href="{% url 'about' %}" class="flex h-full items-center px-3 lg:px-5"> О нас </a>
-        </li>
+					<ul class="flex h-full items-center">
+        {% if page == 'home' %}
+          <li class="active-link h-full transition hover:bg-[#144690]">
+            <a href="{% url 'home' %}" class="flex h-full items-center px-3 lg:px-5"> Главная </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'products' %}" class="flex h-full items-center px-3 lg:px-5"> Продукция </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'objects' %}" class="flex h-full items-center px-3 lg:px-5"> Наши объекты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'contacts' %}" class="flex h-full items-center px-3 lg:px-5"> Контакты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'about' %}" class="flex h-full items-center px-3 lg:px-5"> О нас </a>
+          </li>
+        {% elif page == 'products' %}
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'home' %}" class="flex h-full items-center px-3 lg:px-5"> Главная </a>
+          </li>
+          <li class="active-link h-full transition hover:bg-[#144690]">
+            <a href="{% url 'products' %}" class="flex h-full items-center px-3 lg:px-5"> Продукция </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'objects' %}" class="flex h-full items-center px-3 lg:px-5"> Наши объекты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'contacts' %}" class="flex h-full items-center px-3 lg:px-5"> Контакты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'about' %}" class="flex h-full items-center px-3 lg:px-5"> О нас </a>
+          </li>
+        {% elif page == 'objects' %}
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'home' %}" class="flex h-full items-center px-3 lg:px-5"> Главная </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'products' %}" class="flex h-full items-center px-3 lg:px-5"> Продукция </a>
+          </li>
+          <li class="active-link h-full transition hover:bg-[#144690]">
+            <a href="{% url 'objects' %}" class="flex h-full items-center px-3 lg:px-5"> Наши объекты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'contacts' %}" class="flex h-full items-center px-3 lg:px-5"> Контакты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'about' %}" class="flex h-full items-center px-3 lg:px-5"> О нас </a>
+          </li>
+        {% elif page == 'contacts' %}
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'home' %}" class="flex h-full items-center px-3 lg:px-5"> Главная </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'products' %}" class="flex h-full items-center px-3 lg:px-5"> Продукция </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'objects' %}" class="flex h-full items-center px-3 lg:px-5"> Наши объекты </a>
+          </li>
+          <li class="active-link h-full transition hover:bg-[#144690]">
+            <a href="{% url 'contacts' %}" class="flex h-full items-center px-3 lg:px-5"> Контакты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'about' %}" class="flex h-full items-center px-3 lg:px-5"> О нас </a>
+          </li>
+        {% elif page == 'about' %}
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'home' %}" class="flex h-full items-center px-3 lg:px-5"> Главная </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'products' %}" class="flex h-full items-center px-3 lg:px-5"> Продукция </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'objects' %}" class="flex h-full items-center px-3 lg:px-5"> Наши объекты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'contacts' %}" class="flex h-full items-center px-3 lg:px-5"> Контакты </a>
+          </li>
+          <li class="active-link h-full transition hover:bg-[#144690]">
+            <a href="{% url 'about' %}" class="flex h-full items-center px-3 lg:px-5"> О нас </a>
+          </li>
+        {% else %}
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'home' %}" class="flex h-full items-center px-3 lg:px-5"> Главная </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'products' %}" class="flex h-full items-center px-3 lg:px-5"> Продукция </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'objects' %}" class="flex h-full items-center px-3 lg:px-5"> Наши объекты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'contacts' %}" class="flex h-full items-center px-3 lg:px-5"> Контакты </a>
+          </li>
+          <li class="h-full transition hover:bg-[#144690]">
+            <a href="{% url 'about' %}" class="flex h-full items-center px-3 lg:px-5"> О нас </a>
+          </li>
+        {% endif %}
       </ul>
     </nav>
 

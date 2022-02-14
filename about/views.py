@@ -11,7 +11,6 @@ def about(request):
         'head_tags': settings.HeadTags.objects.all(),
         'page': 'about',
         'phones': contacts.PhoneNumbers.objects.all(),
-        'emails': contacts.Emails.objects.all(),
         'addresses': contacts.Addresses.objects.all(),
     }
     return render(request, 'about/index.html', context=data)

@@ -1,6 +1,18 @@
 from django.db import models
 
 
+class Certificates(models.Model):
+    title = models.CharField(max_length=300, verbose_name="Название сертификата", blank=False)
+    pic = models.ImageField(upload_to="media", verbose_name="Сертификат")
+
+    class Meta:
+        verbose_name = "Сертификат"
+        verbose_name_plural = "Сертификаты"
+
+    def __str__(self):
+        return self.title
+
+
 class MetaTags(models.Model):
     title = models.CharField(max_length=300, verbose_name='Title', blank=False)
     keywords = models.TextField(verbose_name='Keywords (Через запятую/Предложением)', blank=False)

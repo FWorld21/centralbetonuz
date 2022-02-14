@@ -48,20 +48,8 @@ class PhoneNumbers(models.Model):
         return self.number
 
 
-class Emails(models.Model):
-    email = models.CharField(max_length=100, verbose_name='Почта')
-
-    class Meta:
-        verbose_name = 'Email адрес'
-        verbose_name_plural = 'Email адреса'
-
-    def __str__(self):
-        return self.email
-
-
 class Addresses(models.Model):
-    address = models.TextField(verbose_name='Адрес (Рус)')
-    address_uz = models.TextField(verbose_name='Адрес (Узб)')
+    address = models.TextField(verbose_name='Адрес')
 
     class Meta:
         verbose_name = 'Адрес'

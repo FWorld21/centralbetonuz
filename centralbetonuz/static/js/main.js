@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	const partnersSwiper = new Swiper('.partners', {
 		// Parameters
 		slidesPerView: 1,
-		allowTouchMove: false,
 		loop: true,
 		spaceBetween: 20,
 		autoplay: {
 			delay: 3000,
+			disableOnInteraction: false,
 		},
 		breakpoints: {
 			640: {
@@ -52,17 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		},
 	});
 
-	const introSwiper = new Swiper('.intro', {
+	const heroSwiper = new Swiper('.hero', {
 		// Parameters
 		slidesPerView: 1,
-		// allowTouchMove: false,
 		loop: true,
-		// autoplay: {
-		// 	delay: 3000,
-		// },
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: false,
+		},
 		// Pagination
-		// pagination: {
-		// 	el: '.swiper-pagination',
-		// },
+		pagination: {
+			el: '.swiper-pagination',
+		},
 	});
 });

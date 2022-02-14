@@ -7,25 +7,28 @@
 {% endblock %}
 {% block content %}
 <main>
-	<section class="container space-y-7 py-10 md:py-20">
-		<div class="flex flex-col gap-x-20 space-y-10 lg:flex-row lg:space-y-0">
-			<div class="mx-auto h-auto w-full sm:h-[505px] sm:w-[470px] lg:mx-0">
-				<img src="{% static '/img/product/1.jpg' %}" alt="Товар" class="h-full w-full object-cover" />
-			</div>
-			<div class="flex-grow space-y-12">
-				<h1 class="font-[Gilroy] text-2xl font-semibold text-black md:text-4xl">Товарный бетон марки М100</h1>
-				<div>
-					<a href="#" class="border-accent inline-block rounded-full border-2 px-10 py-3 text-lg font-bold">Обратный звонок</a>
+	{% for product in products %}
+		{% if product.slug == slug %}
+			<section class="container space-y-7 py-10 md:py-20">
+				<div class="flex flex-col gap-x-20 space-y-10 lg:flex-row lg:space-y-0">
+					<div class="mx-auto h-auto w-full sm:h-[505px] sm:w-[470px] lg:mx-0">
+						<img src="{{ product.pic.url }}" alt="{{ product.title }}" class="h-full w-full object-cover" />
+					</div>
+					<div class="flex-grow space-y-12">
+						<h1 class="font-[Gilroy] text-2xl font-semibold text-black md:text-4xl">{{ product.title }}</h1>
+						<div>
+							<a href="#" class="border-accent inline-block rounded-full border-2 px-10 py-3 text-lg font-bold">Обратный звонок</a>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="space-y-5 rounded-xl bg-white p-5 font-[Gilroy] text-black shadow-sm">
-			<h2 class="text-lg font-semibold md:text-2xl">Описание</h2>
-			<p class="text-base md:text-xl">
-				Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты. Страна родного журчит они решила продолжил, меня
-				себя рыбного напоивший ведущими рекламных. Предупредила, правилами это. Последний строчка даже несколько рыбными!
-			</p>
-		</div>
-	</section>
+				<div class="space-y-5 rounded-xl bg-white p-5 font-[Gilroy] text-black shadow-sm">
+					<h2 class="text-lg font-semibold md:text-2xl">Описание</h2>
+					<p class="text-base md:text-xl">
+						{{ product.full_desc }}
+					</p>
+				</div>
+			</section>
+		{% endif %}
+	{% endfor %}
 </main>
 {% endblock %}

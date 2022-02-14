@@ -7,11 +7,12 @@ from .models import *
 def objects(request):
     data = {
         'meta': MetaTags.objects.all(),
+        'objects': Objects.objects.all(),
+        'objects_images': ObjectImages.objects.all(),
         'favicons': settings.Favicon.objects.all(),
         'head_tags': settings.HeadTags.objects.all(),
-        'page': 'about',
+        'page': 'objects',
         'phones': contacts.PhoneNumbers.objects.all(),
-        'emails': contacts.Emails.objects.all(),
         'addresses': contacts.Addresses.objects.all(),
     }
     return render(request, 'objects/index.html', context=data)

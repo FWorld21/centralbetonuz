@@ -17,15 +17,17 @@
     <div class="space-y-5 sm:text-right md:text-left">
       <h2 class="text-lg font-semibold">Адреса заводов:</h2>
       <ul class="space-y-5 text-sm lg:text-lg">
-        <li>г. Ташкент, Бектемирский р-н</li>
-        <li>г. Ташкент, Олтинтопган, дом-4</li>
-        <li>г. Ташкент, Янгихает, Бинокор КФЙ</li>
+        {% for address in addresses %}
+          <li>{{ address }}</li>
+        {% endfor %}
       </ul>
     </div>
     <div class="space-y-3 sm:col-start-2 sm:row-start-1 sm:text-right md:row-start-auto md:text-center lg:text-left">
       <h2 class="text-lg font-semibold">Контакты</h2>
       <div>
-        <a href="tel:+998946842318" class="text-lg">+998 94 684 23 18</a>
+        {% for phone in phones %}
+          <a href="tel:{{ phone.number }}" class="text-lg">{{ phone.number }}</a>
+        {% endfor %}
       </div>
       <div class="flex space-x-8 sm:justify-end md:justify-center lg:justify-start">
         <a href="#" class="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-accent-100">
