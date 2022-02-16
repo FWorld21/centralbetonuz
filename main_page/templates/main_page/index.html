@@ -7,9 +7,42 @@
   <script src="{% static '/js/swiper-bundle.min.js' %}" defer></script>
   <script src="{% static '/js/main.js' %}" defer></script>
   <script src="{% static '/js/mobile-menu.js' %}" defer></script>
+  <script src="{% static '/js/modal-window.js' %}" defer></script>
 {% endblock %}
 {% block content %}
-<section>
+<section><!-- Это модальное окно которое должно появляться после отправки формы -->
+	<!-- Убери класс 'hidden' для того что бы показать его -->
+	{% if success_sent %}
+		<div
+			class="fixed inset-0 bg-black/80 md:bg-black/40 z-50 flex items-center justify-center overflow-y-auto p-5 md:backdrop-blur-lg">
+			<div class="bg-white w-full max-w-md text-center rounded-lg overflow-hidden space-y-10 py-10">
+				<h2 class="text-3xl font-semibold">Ваша заявка успешно отправлена !</h2>
+				<a href="{% url page %}"
+					class="border-accent inline-block rounded-full border-2 px-10 py-3 text-lg font-bold hover:bg-accent hover:text-white transition">Закрыть</a>
+			</div>
+		</div>
+	{% endif %}
+
+	<!-- Модальное окно с заполнением формы -->
+	<div
+		class="fixed inset-0 bg-black/40 z-50 backdrop-blur-lg flex items-center justify-center modal-form hidden modal-form__wrapper">
+		<div class="bg-white container w-full max-w-lg rounded-lg relative py-14 overflow-hidden">
+			<form class='flex flex-col items-center space-y-8 method="GET"'> {% csrf_token %}
+				<input type="text" placeholder="Имя и Фамилия" class="shadow rounded-full py-3 px-5 bg-slate-100 outline-none"
+					required name='name'>
+				<input type="tel" placeholder="Телефонный номер" class="shadow rounded-full py-3 px-5 bg-slate-100 outline-none"
+					required name='phone'>
+				<input type="email" placeholder="E-Mail" class="shadow rounded-full py-3 px-5 bg-slate-100 outline-none"
+					required name='email'>
+				<button
+					class="border-accent inline-block rounded-full border-2 px-10 py-2 text-lg font-bold hover:bg-accent hover:text-white transition outline-none">Отправить</button>
+			</form>
+			<div class="absolute right-3 top-3 cursor-pointer rounded-full overflow-hidden modal-form__close">
+				<img src="{% static '/img/icons/close-blue.svg' %}" alt="Закрыть">
+			</div>
+		</div>
+	</div>
+
 			<div class="hero overflow-hidden">
 				<div class="swiper-wrapper">
 					{% for banner in banners %}
@@ -27,12 +60,10 @@
 									<h2>{{ banner.subtitle }}</h2>
 								</div>
 								<div class="text-center">
-								<a
-										href="#"
-										class="border-accent inline-block rounded-full border-2 bg-white px-10 py-3 text-lg font-bold"
-										>Оставить заявку</a
-									>
-								</div>
+							<a href="#"
+								class="border-accent inline-block rounded-full border-2 bg-white px-10 py-3 text-lg font-bold hero-btn">Оставить
+								заявку</a>
+						</div>
 							</div>
 						</div>
 					{% endfor %}
@@ -257,10 +288,11 @@
 							Продолжил свою знаках снова!
 						</p>
 						<h3 class="text-2xl font-bold">Стать партнером</h3>
-						<form class="w-full space-y-4">
+						<form class='w-full space-y-4 method="GET"'> {% csrf_token %}
 							<input
 								type="text"
 								placeholder="Ваше имя"
+								required
 								name="name"
 								class="ring-accent placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
 							/>
@@ -268,13 +300,15 @@
 								type="tel"
 								placeholder="Ваш телефон"
 								name="phone"
+								required
 								class="placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
 							/>
 							<input
-								type="text"
-								placeholder="Сайт компании (необязательно)"
-								name="site"
+								type="email"
+								placeholder="E-Mail"
+								name="email"
 								class="placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
+								required
 							/>
 							<button
 								type="submit"

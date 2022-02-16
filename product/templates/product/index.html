@@ -4,9 +4,41 @@
 		<link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
 		<title>Central Beton - Карточка товара</title>
 		<script src="{% static '/js/mobile-menu.js' %}" defer></script>
+		<script src="{% static '/js/modal-window.js' %}" defer></script>
 {% endblock %}
 {% block content %}
 <main>
+	{% if success_sent %}
+		<div
+			class="fixed inset-0 bg-black/80 md:bg-black/40 z-50 flex items-center justify-center overflow-y-auto p-5 md:backdrop-blur-lg">
+			<div class="bg-white w-full max-w-md text-center rounded-lg overflow-hidden space-y-10 py-10">
+				<h2 class="text-3xl font-semibold">Ваша заявка успешно отправлена !</h2>
+				<a href="{% url page slug %}"
+					class="border-accent inline-block rounded-full border-2 px-10 py-3 text-lg font-bold hover:bg-accent hover:text-white transition">Закрыть</a>
+			</div>
+		</div>
+	{% endif %}
+
+
+	<!-- Модальное окно с заполнением формы -->
+	<div
+		class="fixed inset-0 bg-black/40 z-50 backdrop-blur-lg flex items-center justify-center modal-form hidden modal-form__wrapper">
+		<div class="bg-white container w-full max-w-lg rounded-lg relative py-14 overflow-hidden">
+			<form class='flex flex-col items-center space-y-8 method="GET"'> {% csrf_token %}
+				<input type="text" placeholder="Имя и Фамилия" class="shadow rounded-full py-3 px-5 bg-slate-100 outline-none"
+					required name='name'>
+				<input type="tel" placeholder="Телефонный номер" class="shadow rounded-full py-3 px-5 bg-slate-100 outline-none"
+					required name='phone'>
+				<input type="email" placeholder="E-Mail" class="shadow rounded-full py-3 px-5 bg-slate-100 outline-none"
+					required name='email'>
+				<button
+					class="border-accent inline-block rounded-full border-2 px-10 py-2 text-lg font-bold hover:bg-accent hover:text-white transition outline-none">Отправить</button>
+			</form>
+			<div class="absolute right-3 top-3 cursor-pointer rounded-full overflow-hidden modal-form__close">
+				<img src="{% static '/img/icons/close-blue.svg' %}" alt="Закрыть">
+			</div>
+		</div>
+	</div>
 	{% for product in products %}
 		{% if product.slug == slug %}
 			<section class="container space-y-7 py-10 md:py-20">
@@ -17,7 +49,7 @@
 					<div class="flex-grow space-y-12">
 						<h1 class="font-[Gilroy] text-2xl font-semibold text-black md:text-4xl">{{ product.title }}</h1>
 						<div>
-							<a href="#" class="border-accent inline-block rounded-full border-2 px-10 py-3 text-lg font-bold">Обратный звонок</a>
+							<a href="#" class="border-accent inline-block rounded-full border-2 px-10 py-3 text-lg font-bold hero-btn">Обратный звонок</a>
 						</div>
 					</div>
 				</div>

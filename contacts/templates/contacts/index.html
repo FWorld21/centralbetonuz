@@ -4,8 +4,20 @@
 		<link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
 		<title>Central Beton - Контакты</title>
 		<script src="{% static '/js/mobile-menu.js' %}" defer></script>
+		<script src="{% static '/js/modal-window.js' %}" defer></script>
 {% endblock %}
 {% block content %}
+	{% if success_sent %}
+		<div
+			class="fixed inset-0 bg-black/80 md:bg-black/40 z-50 flex items-center justify-center overflow-y-auto p-5 md:backdrop-blur-lg">
+			<div class="bg-white w-full max-w-md text-center rounded-lg overflow-hidden space-y-10 py-10">
+				<h2 class="text-3xl font-semibold">Ваша заявка успешно отправлена !</h2>
+				<a href="{% url page %}"
+					class="border-accent inline-block rounded-full border-2 px-10 py-3 text-lg font-bold hover:bg-accent hover:text-white transition">Закрыть</a>
+			</div>
+		</div>
+	{% endif %}
+
 		<main>
 			<section class="container space-y-8 py-10 sm:space-y-16 md:pb-[400px] md:pt-20 lg:pb-96">
 				<h2 class="relative text-center text-2xl font-semibold sm:text-4xl">Контакты</h2>
@@ -30,23 +42,26 @@
 
 					<div class="mx-auto w-full max-w-[366px] space-y-7 md:mx-0 lg:flex-1">
 						<h3 class="text-2xl font-bold">Стать партнером</h3>
-						<form class="space-y-4">
+						<form class='space-y-4 method="GET"'> {% csrf_token %}
 							<input
+								required
 								type="text"
 								placeholder="Ваше имя"
 								name="name"
 								class="ring-accent placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
 							/>
 							<input
+								required
 								type="tel"
 								placeholder="Ваш телефон"
 								name="phone"
 								class="placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
 							/>
 							<input
-								type="text"
-								placeholder="Сайт компании (необязательно)"
-								name="site"
+								required
+								type="email"
+								placeholder="E-Mail"
+								name="email"
 								class="placeholder:text-accent w-full rounded-xl py-6 px-5 shadow-sm outline-none transition-all placeholder:opacity-50 focus:placeholder:opacity-100"
 							/>
 							<button type="submit" class="border-accent mx-auto block rounded-full border-2 px-10 py-3 text-lg font-bold">Отправить</button>
